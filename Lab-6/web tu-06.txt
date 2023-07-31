@@ -1,0 +1,150 @@
+<?php
+// Replace these with your actual database credentials
+$servername = "localhost";
+$username = "students";
+$password = "12345";
+$dbname = "university";
+
+// Step 1: Create a connection to MySQL
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Step 2: Create the students table
+$sql = "CREATE TABLE students (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+)";
+
+if ($conn->query($sql) === true) {
+    echo "Table 'students' created successfully.";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
+// Close the connection
+$conn->close();
+?>
+
+02.
+html fiel
+
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form action="process_student.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
+
+php code
+
+<?php
+// Include the database connection code from Step 1
+include 'db_connection.php';
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Insert the data into the "students" table
+    $sql = "INSERT INTO students (name, email, password) VALUES ('$name', '$email', '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Registration successful!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close the database connection
+    $conn->close();
+}
+?>
+
+03.
+<?php
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    // Create a database connection
+    $conn = new mysqli("localhost", "students", "12345", "university");
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare and execute the SQL query
+    $sql = "INSERT INTO students (name, email, password) VALUES ('$name', '$email', '$password')";
+    if ($conn->query($sql) === TRUE) {
+        echo "Student registration successful!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
+?>
+
+04.
+<?php
+// Create a database connection
+$conn = new mysqli("localhost", "your_username", "your_password", "university");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Retrieve student details from the database
+$sql = "SELECT id, name, email FROM students";
+$result = $conn->query($sql);
+
+// Display student details in a table
+if ($result->num_rows > 0) {
+    echo "<table border='1'>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>";
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>
+                <td>" . $row["id"] . "</td>
+                <td>" . $row["name"] . "</td>
+                <td>" . $row["email"] . "</td>
+            </tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No students found.";
+}
+
+$conn->close();
+?>
+
+

@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>List of Vehicles</title>
+</head>
+<body>
+    <ul type="disk">
+        <li>Car</li>
+        <li>Van</li>
+        <li>Bus</li>
+    </ul>
+</body>
+</html>
+
+02.
+
+<html>
+<head>
+  <title>Fruits List</title>
+</head>
+<body>
+  <ol type="1">
+    <li>Apple</li>
+    <li>Orrange</li>
+    <li>Grapes</li>
+    <li>Banana</li>
+  </ol>
+</body>
+</html>
+
+<html>
+<head>
+    <title>List of Vehicles</title>
+</head>
+<body>
+    <ul type="disk">
+        <li>Car</li>
+        <li>Van</li>
+        <li>Bus</li>
+    </ul>
+</body>
+</html>
+

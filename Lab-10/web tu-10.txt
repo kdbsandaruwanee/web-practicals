@@ -1,0 +1,17 @@
+04.
+<html>
+<head>
+  <title>Fruits and Vegetables</title>
+</head>
+<body>
+  <h1>Apple</h1>
+  <ul>
+    <li>A fruit</li>
+  </ul>
+
+  <h1>Cabbage</h1>
+  <ul>
+    <li>A vegetable</li>
+  </ul>
+</body>
+</html>
