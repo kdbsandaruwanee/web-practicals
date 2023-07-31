@@ -1,0 +1,129 @@
+01.
+
+html code
+
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid black;
+        }
+        th {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form action="submit.php" method="post">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" name="userName" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        
+        <label for="academicYear">Academic Year:</label>
+        <select id="academicYear" name="academicYear" required>
+            <option value="second_yr">2nd Year</option>
+            <option value="third_yr">3rd Year</option>
+            <option value="fourth_yr">4th Year</option>
+        </select>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+php code
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid black;
+        }
+        th {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Form Submission</h1>
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td><?php echo isset($_POST['firstName']) ? $_POST['firstName'] : ''; ?></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><?php echo isset($_POST['lastName']) ? $_POST['lastName'] : ''; ?></td>
+        </tr>
+        <tr>
+            <td>User Name</td>
+            <td><?php echo isset($_POST['userName']) ? $_POST['userName'] : ''; ?></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><?php echo isset($_POST['password']) ? $_POST['password'] : ''; ?></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><?php echo isset($_POST['gender']) ? $_POST['gender'] : ''; ?></td>
+        </tr>
+        <tr>
+            <td>Academic Year</td>
+            <td><?php echo isset($_POST['academicYear']) ? $_POST['academicYear'] : ''; ?></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?></td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td><?php echo isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : ''; ?></td>
+        </tr>
+    </table>
+</body>
+</html>
+

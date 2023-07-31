@@ -1,0 +1,94 @@
+
+01.
+<?php
+// Create variables x and y and assign values
+$x = 6;
+$y = 4;
+
+// Perform operations
+$sum = $x + $y;
+$difference = $x - $y;
+$product = $x * $y;
+$division = $x / $y;
+
+// Display the results
+echo "sum:" . $sum . "<br>";
+echo "difference:" . $difference . "<br>";
+echo "product:" . $product . "<br>";
+echo "division:" . $division . "<br>";
+?>
+
+02.
+
+<?php
+// Using a for loop to display the count from 5 to 15
+for ($i = 5; $i <= 15; $i++) {
+    echo $i . " ";
+}
+?>
+
+03.
+
+<?php
+function calculateElectricityBill($units) {
+    if ($units <= 50) {
+        $billAmount = $units * 3.50;
+    } elseif ($units <= 100) {
+        $billAmount = 50 * 3.50 + ($units - 50) * 4.00;
+    } elseif ($units <= 150) {
+        $billAmount = 50 * 3.50 + 50 * 4.00 + ($units - 100) * 5.20;
+    } else {
+        $billAmount = 50 * 3.50 + 50 * 4.00 + 50 * 5.20 + ($units - 150) * 6.50;
+    }
+    return $billAmount;
+}
+
+// Test the function
+$unitsConsumed = 200; // Change this value to test with different units consumed
+$totalBillAmount = calculateElectricityBill($unitsConsumed);
+echo "Total bill amount for $unitsConsumed units: Rs. " . number_format($totalBillAmount, 2);
+?>
+
+04.
+
+
+<?php
+function getDayOfWeek($dayNumber) {
+    switch ($dayNumber) {
+        case 1:
+            return "Monday";
+        case 2:
+            return "Tuesday";
+        case 3:
+            return "Wednesday";
+        case 4:
+            return "Thursday";
+        case 5:
+            return "Friday";
+        case 6:
+            return "Saturday";
+        case 7:
+            return "Sunday";
+        default:
+            return "Invalid number";
+    }
+}
+
+$dayNumber = 3; // Change this number to get the corresponding day of the week
+$dayOfWeek = getDayOfWeek($dayNumber);
+echo "The day of the week for number $dayNumber is: $dayOfWeek";
+?>
+
+
+05.
+
+<?php
+// Create an array called 'fruits'
+$fruits = array('Apple', 'Banana', 'Orange', 'Grapes', 'Mango');
+
+// Print each element of the array using a foreach loop
+foreach ($fruits as $fruit) {
+    echo $fruit . "<br>";
+}
+?>
+

@@ -1,0 +1,66 @@
+01.
+<html>
+<head>
+    <title>Change Background Color on Hover</title>
+    <style>
+        button {
+            width: 100px;
+            height: 50px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="redButton" onmouseover="changeBackgroundColor('red')" onmouseout="resetBackgroundColor('red')">Red</button>
+    <button id="greenButton" onmouseover="changeBackgroundColor('green')" onmouseout="resetBackgroundColor('green')">Green</button>
+    <button id="blueButton" onmouseover="changeBackgroundColor('blue')" onmouseout="resetBackgroundColor('blue')">Blue</button>
+
+    <script>
+        function changeBackgroundColor(color) {
+            document.getElementById(color + 'Button').style.backgroundColor = color;
+        }
+
+        function resetBackgroundColor(color) {
+            document.getElementById(color + 'Button').style.backgroundColor = '';
+        }
+    </script>
+</body>
+</html>
+
+
+02.
+<html>
+<head>
+    <title>Circle Area Calculator</title>
+</head>
+<body>
+
+<script>
+    // Function to calculate the area of a circle
+    function calculateCircleArea(radius) {
+        return Math.PI * Math.pow(radius, 2);
+    }
+
+    // Prompt the user to enter the radius
+    var radiusInput = prompt("Enter the radius of the circle:");
+
+    // Convert the input to a number
+    var radius = parseFloat(radiusInput);
+
+    // Check if the entered value is a valid number
+    if (isNaN(radius) || radius <= 0) {
+        alert("Invalid input. Please enter a valid positive number for the radius.");
+    } else {
+        // Calculate the area
+        var area = calculateCircleArea(radius);
+
+        // Display the result
+        alert("The area of the circle with radius " + radius + " is: " + area.toFixed(2));
+    }
+</script>
+
+</body>
+</html>
+
